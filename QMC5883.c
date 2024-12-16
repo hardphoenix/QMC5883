@@ -50,7 +50,7 @@ uint8_t QMC5883_Init(QMC_HandleTypedef *qmc, I2C_HandleTypeDef *i2c, QMC_DataRat
 	if(data_rate == QMC_Rate_200)qmc->ctl_reg |= 0b00001100;
 	else if(data_rate == QMC_Rate_100)qmc->ctl_reg |= 0b00001000;
 	else if(data_rate == QMC_Rate_50)qmc->ctl_reg |= 0b00000100;
-	else if(data_rate == QMC_rate_10)qmc->ctl_reg |= 0b00000000;
+	else if(data_rate == QMC_Rate_10)qmc->ctl_reg |= 0b00000000;
 	else qmc->ctl_reg |= 0b00001100;
 
 	if(HAL_I2C_Mem_Write(qmc->i2c, QMC_I2C_Address, 0x0B, 1, &array[0], 1, 100) != HAL_OK)return QMC_ERR;
